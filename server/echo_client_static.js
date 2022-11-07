@@ -1,4 +1,4 @@
-const grpc = require('grpc')
+const grpc = require('@grpc/grpc-js')
 
 const messages = require('./echo_pb')
 const services = require('./echo_grpc_pb')

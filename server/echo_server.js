@@ -1,4 +1,4 @@
-const grpc = require('grpc')
+const grpc = require('@grpc/grpc-js')
 
 const messages = require('./echo_pb')
 const services = require('./echo_grpc_pb')
@@ -27,10 +27,14 @@ function createEchoServer () {
 
 if (require.main === module) {
   let server = createEchoServer()
-  server.bind(
-    '127.0.0.1:50051', grpc.ServerCredentials.createInsecure()
+  server.bindAsync(
+    '127.0.0.1:50051', grpc.ServerCredentials.createInsecure(), (error, port) => {
+      console.log('error:', error);
+      console.log('port:', port);
+      server.start()
+    }
   )
-  server.start()
+  
 }
 
 

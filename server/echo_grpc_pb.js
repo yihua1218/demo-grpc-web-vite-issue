@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+const grpc = require('@grpc/grpc-js')
 var echo_pb = require('./echo_pb.js');
 
 function serialize_echo_EchoRequest(arg) {
